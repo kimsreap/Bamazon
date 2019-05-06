@@ -5,7 +5,7 @@ const inquire = require('inquire');
 const db = createConnection({
     host:'localhost',
     user:'root',
-    password:'Kim2019@',
+    password:'',
     database:'bamazon',
 });
 
