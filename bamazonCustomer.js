@@ -1,11 +1,13 @@
 const {createConnection} = require('mysql2');
-const inquire = require('inquire');
+const promt = require('prompt');
+const inquirer = require('inquirer');
+
 
 
 const db = createConnection({
     host:'localhost',
     user:'root',
-    password:'',
+    password:'Kim2019@',
     database:'bamazon',
 });
 
@@ -14,7 +16,7 @@ db.connect(e => {
     db.query('SELECT * FROM products',(e, data) => {
         if (e) { console.log(e)}
         data.forEach(({ item_id, product_name, department_name, price, stock_quantity}) => 
-        console.log(`
+        console.log(`   
             Item ID: ${item_id}
             Name of Product: ${product_name}
             Department of Product: ${department_name}
@@ -23,15 +25,31 @@ db.connect(e => {
         `))
         process.exit()
         
-        // console.log(data)
-        // console.log(e)
-        // console.log('---------')
-        // console.log(results)
-        // console.log('--------')
-        // console.log(field)
-        // console.log('---------')
     })  
-})
+});
+
+inquirer.prompt([
+    {
+        type:'input',
+        name:'q1',
+        message:`
+
+                                        ***** Welcome to Bamazon ****
+
+            The above product description is the list of items that are currently available in our stock!!
+
+                                    what product woul you like to purchase today?
+        `
+    },
+])
+    .then(answer => console.log(answers))
+    .catch(e => console.log(e))
+
+
+
+
+
+
 
 
    // e ? console.log(e) : console.log('sucessful connection ...')

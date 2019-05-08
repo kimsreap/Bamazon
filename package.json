@@ -19,6 +19,8 @@
   "homepage": "https://github.com/kimsreap/Bamazon#readme",
   "dependencies": {
     "inquire": "^0.4.8",
-    "mysql2": "^1.6.5"
+    "inquirer": "^6.3.1",
+    "mysql2": "^1.6.5",
+    "prompt": "^1.0.0"
   }
 }
